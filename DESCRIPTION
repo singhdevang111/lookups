@@ -1,7 +1,7 @@
 Package: lookups
 Type: Package
 Title: Standardized Health and Geography Lookups for Wales
-Version: 0.1.0
+Version: 0.1.1
 Author: Devang Singh
 Maintainer: Devang Singh <singh.devang111@gmail.com>
 Description: A centralized collection of standardized lookup tables for Welsh 
