@@ -3,7 +3,7 @@
 
   # 1. Try to get the latest version from GitHub
   latest_version <- tryCatch({
-    url <- "https://raw.githubusercontent.com/singhdevang111/lookups/main/DESCRIPTION"
+    url <- "https://raw.githubusercontent.com/singhdevang111/lookups/master/DESCRIPTION"
 
     # suppressWarnings hides the connection issues/404s from the user
     desc <- suppressWarnings(readLines(url, warn = FALSE))
