@@ -13,32 +13,81 @@
 #'
 #' @return A data frame containing the requested lookup data.
 #'
-#' @section Available Data:
+#' @section Available Data & Columns:
 #' \subsection{1. GP Practice Lookup ("gp")}{
-#'   Contains GP practice codes, names, addresses, and Cluster mapping.
+#'   Comprehensive list of Welsh GP practices and their organizational mappings.
+#'   \itemize{
+#'     \item \code{WCode}: National Practice Code
+#'     \item \code{Local Health Board}: Responsible Health Board
+#'     \item \code{Local Authority}: Local Authority area
+#'     \item \code{Practice Name}: Official name of the surgery
+#'     \item \code{Practice Address}: Full physical address
+#'     \item \code{Postcode}: Practice location postcode
+#'     \item \code{Practice Size}: Categorical size (e.g., Small/Medium/Large)
+#'     \item \code{Practice Population}: Total registered patients
+#'     \item \code{Cluster}: Primary Care Cluster
+#'   }
 #' }
 #'
 #' \subsection{2. WIMD 2025 ("wimd")}{
-#'   Contains LSOA codes, WIMD ranks, and Rural/Urban classifications.
+#'   Welsh Index of Multiple Deprivation 2025 data joined with census urban/rural flags.
+#'   \itemize{
+#'     \item \code{LSOA Code}: 2021 LSOA Code (W01...)
+#'     \item \code{LSOA Name}: Descriptive LSOA Name
+#'     \item \code{Local Authority}: Local Authority Name
+#'     \item \code{WIMD 2025 overall rank}: National rank (1 = most deprived)
+#'     \item \code{WIMD 2025 overall decile}: 1-10 scale
+#'     \item \code{WIMD 2025 overall quintile}: 1-5 scale
+#'     \item \code{WIMD 2025 overall quartile}: 1-4 scale
+#'     \item \code{WIMD 2025 overall deprivation group}: Descriptive group name
+#'     \item \code{Urban_rural_flag}: Census-based classification
+#'   }
 #' }
 #'
 #' \subsection{3. Schools Lookup ("schools")}{
-#'   Master list of Maintained, Independent, and PRU schools.
+#'   Master list of educational institutions across Wales.
+#'   \itemize{
+#'     \item \code{School Number}: Unique Welsh school ID
+#'     \item \code{School Name}: Name of the school
+#'     \item \code{Local Authority}: Local Authority area
+#'     \item \code{Address}: Physical address of the school
+#'     \item \code{Postcode}: School postcode
+#'     \item \code{Data Source}: Origin of the record (Maintained/Independent/PRU)
+#'   }
 #' }
 #'
 #' \subsection{4. Postcode to LSOA ("lsoa")}{
-#'   Links UK Postcodes to LSOA codes.
+#'   Cleaned mapping of Welsh postcodes to geographic boundaries.
+#'   \itemize{
+#'     \item \code{postcode}: Cleaned postcode (no spaces)
+#'     \item \code{LSOA Code}: 2021 LSOA mapping
+#'     \item \code{Local Authority}: Local Authority area
+#'   }
 #' }
 #'
 #' @export
 #' @examples
 #' \dontrun{
-#' # Get the GP data
-#' gp_data <- use_lookup("gp")
+#' # Access GP lookup
+#' gp <- use_lookup("gp")
 #'
-#' # Get the School data
-#' school_data <- use_lookup("schools")
+#' # Access WIMD 2025 data
+#' wimd <- use_lookup("wimd")
 #' }
+use_lookup <- function(dataset) {
+  # Normalize input
+  dataset <- tolower(dataset)
+
+  # Return data or error
+  if (dataset == "gp") return(gp_master_lookup)
+  if (dataset == "wimd") return(wimd_master_with_rural_urban_flag)
+  if (dataset == "schools") return(school_lookup_master)
+  if (dataset == "lsoa") return(postcode_to_lsoa_clean)
+
+  stop("Invalid dataset. Choose from: 'gp', 'wimd', 'schools', or 'lsoa'.")
+}
+
+
 use_lookup <- function(dataset) {
 
   # 1. Validate the input (Case insensitive)
