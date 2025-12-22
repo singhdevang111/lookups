@@ -1,0 +1,16 @@
+Package: lookups
+Type: Package
+Title: Standardized Health and Geography Lookups for Wales
+Version: 0.1.0
+Author: Devang Singh
+Maintainer: Devang Singh <singh.devang111@gmail.com>
+Description: A centralized collection of standardized lookup tables for Welsh 
+    health and administrative data. Includes master lists for GP practices 
+    (with Cluster mapping), WIMD 2025 deprivation data, schools, and 
+    postcode-to-LSOA mappings. Data is stored internally and accessed via 
+    helper functions to ensure consistency across projects.
+License: MIT + file LICENSE
+Encoding: UTF-8
+RoxygenNote: 7.3.3
+Depends: 
+    R (>= 3.5)
