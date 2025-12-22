@@ -1,19 +1,17 @@
 .onAttach <- function(libname, pkgname) {
-
-  # 1. Get current installed version
   local_version <- utils::packageVersion("lookups")
 
-  # 2. Try to get the latest version from GitHub
-  # We use a try-catch so the package still loads if they have no internet
+  # Use suppressWarnings so the user doesn't see "404 Not Found" or connection errors
   latest_version <- tryCatch({
-    # Point this to your RAW Description file on GitHub
     url <- "https://raw.githubusercontent.com/singhdevang111/lookups/main/DESCRIPTION"
-    desc <- readLines(url, warn = FALSE)
+
+    # suppressWarnings hides the connection issues from the user
+    desc <- suppressWarnings(readLines(url, warn = FALSE))
+
     v_line <- desc[grep("^Version:", desc)]
     gsub("Version: ", "", v_line)
   }, error = function(e) NULL)
 
-  # 3. Compare and notify
   if (!is.null(latest_version) && local_version < latest_version) {
     packageStartupMessage(paste0(
       "\n",
