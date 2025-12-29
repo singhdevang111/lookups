@@ -69,10 +69,16 @@
 #' @examples
 #' \dontrun{
 #' # Access GP lookup
-#' gp <- use_lookup("gp")
+#' gp_lookup_df <- use_lookup("gp")
 #'
 #' # Access WIMD 2025 data
-#' wimd <- use_lookup("wimd")
+#' wimd_lookup_df <- use_lookup("wimd")
+#'
+#' # Access lsoa to postcode lookup
+#' losa_postcode_lookup_df <- use_lookup("lsoa")
+#'
+#' # Access School Master data lookup
+#' school_lookup_df <- use_lookup("school")
 #' }
 use_lookup <- function(dataset) {
   # Normalize input
