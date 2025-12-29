@@ -19,14 +19,17 @@ versions of essential Welsh datasets directly within R.
 With a single function—`use_lookup()`—you can instantly access:
 
 - **GP Practice Master List:** A comprehensive directory of all Welsh GP
-  surgeries, including their national codes (`WCode`), official names,
-  and their mappings to **Primary Care Clusters** and **Health Boards**.
+  surgeries, including their `wcode`, official names, and their mappings
+  to **Clusters** and **Health Boards**.
+
 - **WIMD 2025 and Urban/Rural Status:** The latest Welsh Index of
   Multiple Deprivation data. This includes ranks, deciles, quintiles,
   and specialized **Urban/Rural flags** for every LSOA in Wales.
+
 - **Postcode to LSOA Mapping:** A lightning-fast lookup for Welsh
   postcodes (2021 boundaries) that allows you to join postcodes to Lower
   Super Output Area (LSOA)
+
 - **Schools Master List:** A list of all schools in Wales, categorized
   by type Postcodes and Local Authority.
 
@@ -45,7 +48,6 @@ GitHub using the following commands:
 devtools::install_github("singhdevang111/lookups")
 
 # Load the package
-
 library(lookups)
 ```
 
