@@ -22,7 +22,7 @@ With a single function—`use_lookup()`—you can instantly access:
 
 * **Postcode to LSOA Mapping:** A lightning-fast lookup for Welsh postcodes (2021 boundaries) that allows you to join postcodes to Lower Super Output Area (LSOA)
 
-* **Schools Master List:** A list of all schools in Wales, categorized by type Postcodes and Local Authority.
+* **Schools Master List:** A list of all schools in Wales, categorized by Postcodes and Local Authority.
 
 ---
 

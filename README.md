@@ -31,7 +31,7 @@ With a single function—`use_lookup()`—you can instantly access:
   Super Output Area (LSOA)
 
 - **Schools Master List:** A list of all schools in Wales, categorized
-  by type Postcodes and Local Authority.
+  by Postcodes and Local Authority.
 
 ------------------------------------------------------------------------
 
