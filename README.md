@@ -3,13 +3,10 @@
 
 ### 👋 Welcome to the `lookups` package!
 
-Thank you for using `lookups`. This package was designed to be a “single
-source of truth” for health and geography data across Wales. Our goal is
-to save you time and reduce errors by providing clean, standardized, and
-ready-to-use datasets for your analysis.
-
-Whether you are mapping patient postcodes or aggregating data by Primary
-Care Clusters, `lookups` has you covered!
+Thank you for using `lookups`. This package is designed to be a “one
+stop shop” for all your data lookup needs. Our goal is to save you time
+and reduce errors by providing clean, standardized, and ready-to-use
+datasets for your analysis.
 
 ------------------------------------------------------------------------
 
@@ -24,15 +21,14 @@ With a single function—`use_lookup()`—you can instantly access:
 - **GP Practice Master List:** A comprehensive directory of all Welsh GP
   surgeries, including their national codes (`WCode`), official names,
   and their mappings to **Primary Care Clusters** and **Health Boards**.
-- **WIMD 2025:** The latest Welsh Index of Multiple Deprivation data.
-  This includes ranks, deciles, quintiles, and specialized **Urban/Rural
-  flags** for every LSOA in Wales.
+- **WIMD 2025 and Urban/Rural Status:** The latest Welsh Index of
+  Multiple Deprivation data. This includes ranks, deciles, quintiles,
+  and specialized **Urban/Rural flags** for every LSOA in Wales.
 - **Postcode to LSOA Mapping:** A lightning-fast lookup for Welsh
-  postcodes (2021 boundaries) that allows you to join patient-level data
-  to geographic and deprivation markers instantly.
-- **Schools Master List:** A verified list of all educational
-  institutions in Wales, categorized by type (Maintained, Independent,
-  PRU) and Local Authority.
+  postcodes (2021 boundaries) that allows you to join postcodes to Lower
+  Super Output Area (LSOA)
+- **Schools Master List:** A list of all schools in Wales, categorized
+  by type Postcodes and Local Authority.
 
 ------------------------------------------------------------------------
 
@@ -48,20 +44,17 @@ GitHub using the following commands:
 # Install the package
 devtools::install_github("singhdevang111/lookups")
 
+# Load the package
+
+library(lookups)
+```
+
+``` r
 ## 📖 Getting Started & Documentation
 
 Once the package is installed and loaded, you can dive straight into the documentation to see the full list of available columns and usage examples.
 
 To read the documentation, simply run:
 
-```r
-?use_lookup
-
-library(lookups)
-
-# Get the GP Practice master list
-gp_list <- use_lookup("gp")
-
-# View the first few rows
-head(gp_list)
+help(package = lookups)
 ```
